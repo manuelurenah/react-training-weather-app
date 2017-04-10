@@ -1,0 +1,54 @@
+{
+  "name": "react-training-weather-app",
+  "version": "1.0.0",
+  "description": "Weather app for React Training using ES6",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint . --ext .js --ext .jsx --ignore-path .gitignore --cache",
+    "lint:fix": "eslint --fix . --ext .js --ext .jsx --ignore-path .gitignore --cache",
+    "production": "webpack -p",
+    "start": "webpack-dev-server --progress --colors"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manuelurenah/react-training-weather-app.git"
+  },
+  "keywords": [
+    "react",
+    "react-router",
+    "training",
+    "es6"
+  ],
+  "author": "Manuel Emilio Urena",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/manuelurenah/react-training-weather-app/issues"
+  },
+  "homepage": "https://github.com/manuelurenah/react-training-weather-app#readme",
+  "dependencies": {
+    "react": "^15.5.3",
+    "react-dom": "^15.5.3",
+    "react-router": "^4.0.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-eslint": "^7.2.1",
+    "babel-loader": "^6.4.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-react-hmre": "^1.1.1",
+    "css-loader": "^0.28.0",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-loader": "^1.7.1",
+    "eslint-plugin-babel": "^4.1.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.3",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "html-webpack-plugin": "^2.28.0",
+    "style-loader": "^0.16.1",
+    "webpack": "^2.3.3",
+    "webpack-dev-server": "^2.4.2"
+  }
+}
