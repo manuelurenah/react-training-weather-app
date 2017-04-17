@@ -1,7 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
-const App = () => (
+const Dashboard = () => (
     <div id="container">
         <div className="section">
             <div className="row">
@@ -13,4 +12,4 @@ const App = () => (
     </div>
 );
 
-ReactDOM.render(<App />, document.getElementById('app'));
+export default Dashboard;

@@ -26,7 +26,7 @@ const productionPlugin = new webpack.DefinePlugin({
 
 const base = {
     entry: {
-        'assets/js/bundle': path.join(PATHS.app, 'index.jsx'),
+        'assets/js/bundle': path.join(PATHS.app, 'index.js'),
     },
     output: {
         path: PATHS.build,
