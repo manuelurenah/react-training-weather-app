@@ -1,20 +1,34 @@
 import React from 'react';
-import RaisedButton from 'material-ui/RaisedButton';
-import TextField from 'material-ui/TextField';
+import { white } from 'material-ui/styles/colors';
+import Search from './Search';
+
+const styles = {
+    hintStyle: {
+        color: 'rgba(255, 255, 255, 0.5)',
+    },
+    inputStyle: {
+        color: white,
+    },
+    raisedButton: {
+        width: '100%',
+    },
+    textField: {
+        width: '100%',
+    },
+};
 
 const Dashboard = () => (
     <div id="dashboard">
-        <div className="row">
-            <h2 className="col s12 white-text center">Welcome to the React Weather Training App</h2>
-            <h3 className="col s12 white-text center">Enter a City</h3>
-            <TextField
-                className="col s12 center"
-                floatingLabelText="City"
-            />
-            <RaisedButton
-                className="center"
-                label="search"
-            />
+        <div className="container">
+            <div className="section">
+                <div className="row">
+                    <h1 className="col s12 white-text center">React <i className="fa fa-cloud" aria-hidden="true" /> Weather</h1>
+                    <Search
+                        hintText="Enter a City"
+                        style={styles}
+                    />
+                </div>
+            </div>
         </div>
     </div>
 );

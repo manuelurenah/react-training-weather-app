@@ -1,13 +1,14 @@
-html,
-body,
-main,
-#app
-#main-wrapper {
+html, body, main {
+    height: 100%;
+    overflow: hidden;
+}
+
+#app #main-wrapper {
     height: 100%;
 }
 
 #dashboard {
-    background-image: url("https://unsplash.it/1920/1080/?random");
+    background: linear-gradient( rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.40)), url("https://unsplash.it/1920/1080/?random");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
