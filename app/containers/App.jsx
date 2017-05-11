@@ -28,6 +28,8 @@ class App extends Component {
             city,
         });
 
+        console.log(city);
+
         fetchCurrentWeather(city);
         fetchForecastWeather(city);
     }
