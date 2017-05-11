@@ -4,11 +4,9 @@ import Dashboard from './Dashboard';
 import '../style.css';
 
 const Main = () => (
-    <main>
-        <Switch>
-            <Route exact path="/" component={Dashboard} />
-        </Switch>
-    </main>
+    <Switch>
+        <Route exact path="/" component={Dashboard} />
+    </Switch>
 );
 
 export default Main;

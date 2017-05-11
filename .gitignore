@@ -93,5 +93,6 @@ typings/
 ### Custom Directories ###
 
 build/
+app/config/keys.js
 
 # End of https://www.gitignore.io/api/node,macos
