@@ -1,6 +1,6 @@
 import React from 'react';
 import { white } from 'material-ui/styles/colors';
-import Search from './Search';
+import Search from './Search/Search';
 
 const styles = {
     hintStyle: {
@@ -24,7 +24,7 @@ const Dashboard = () => (
                 <div className="row">
                     <h1 className="col s12 white-text center">React <i className="fa fa-cloud" aria-hidden="true" /> Weather</h1>
                     <Search
-                        hintText="Enter a City"
+                        hintText="Santiago, Dominican Republic"
                         style={styles}
                     />
                 </div>
