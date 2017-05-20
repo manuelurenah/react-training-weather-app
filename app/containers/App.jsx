@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import AppBar from 'material-ui/AppBar';
-import Main from '../components/Main';
+import Dashboard from '../components/Dashboard';
+import Forecast from '../components/Forecast';
 import Search from '../components/Search/Search';
 import fetchForecastWeather from '../helpers/api';
+import '../style.css';
 
 class App extends Component {
     static propTypes = {
@@ -64,7 +67,9 @@ class App extends Component {
                             <Search
                                 hintText="Enter a City"
                                 mini
-                                onButtonClick={() => this.handleSearch(this.state.searchField.text)}
+                                onButtonClick={() =>
+                                    this.handleSearch(this.state.searchField.text)
+                                }
                                 onInputChange={this.handleInputChange}
                             />
                         }
@@ -72,7 +77,10 @@ class App extends Component {
                         showMenuIconButton={false}
                         title="React Weather"
                     />
-                    <Main />
+                    <Switch>
+                        <Route exact path="/" component={Dashboard} />
+                        <Route path="/forecast" component={Forecast} />
+                    </Switch>
                 </div>
             </MuiThemeProvider>
         );
