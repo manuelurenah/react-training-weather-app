@@ -16,5 +16,12 @@ html, body {
 }
 
 .weather-forecast {
-    height: 100%;
+    height: calc(100% - 64px);
+    overflow-y: auto;
+}
+
+@media screen only and (max-width: 600px) {
+    .weather-forecast {
+        height: calc(100%-64px);
+    }
 }

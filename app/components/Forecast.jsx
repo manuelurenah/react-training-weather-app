@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { parse } from 'query-string';
 import CircularProgress from 'material-ui/CircularProgress';
+import Weather from './Weather';
 import { fetchForecastWeather } from '../helpers/api';
 
 class Forecast extends Component {
@@ -21,10 +22,15 @@ class Forecast extends Component {
         this.makeApiRequest(city);
     }
 
+    componentWillReceiveProps(nextProps) {
+        const city = parse(nextProps.location.search).city;
+
+        this.makeApiRequest(city);
+    }
+
     makeApiRequest(city) {
         fetchForecastWeather(city, true)
         .then((weatherData) => {
-            console.log(weatherData);
             this.setState({
                 loading: false,
                 weatherData,
@@ -33,7 +39,7 @@ class Forecast extends Component {
     }
 
     render() {
-        const { loading } = this.state;
+        const { loading, weatherData } = this.state;
 
         return (
             <div className={`weather-forecast center ${loading ? 'valign-wrapper' : ''}`}>
@@ -45,7 +51,18 @@ class Forecast extends Component {
                     /> :
                     <div className="container">
                         <div className="section">
-                            <h1 className="white-text">Forecast</h1>
+                            <h1 className="white-text">
+                                {weatherData.city.name}
+                            </h1>
+                            <div className="days-container row">
+                                {weatherData.list.map(day =>
+                                    <Weather
+                                        date={day.dt}
+                                        icon={day.weather[0].icon}
+                                        key={day.dt}
+                                    />,
+                                )}
+                            </div>
                         </div>
                     </div>
                 }
