@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { white } from 'material-ui/styles/colors';
 import Search from './Search/Search';
-import fetchForecastWeather from '../helpers/api';
 
 const styles = {
     hintStyle: {
@@ -39,20 +38,6 @@ class Dashboard extends Component {
         this.handleSearch = this.handleSearch.bind(this);
     }
 
-    handleSearch(city) {
-        this.props.history.push({
-            pathname: 'forecast',
-            search: `?city=${city}`,
-        });
-
-        this.setState({
-            city,
-        });
-
-        fetchForecastWeather(city, false);
-        fetchForecastWeather(city, true);
-    }
-
     handleInputChange(event) {
         event.preventDefault();
 
@@ -64,6 +49,21 @@ class Dashboard extends Component {
         });
     }
 
+    handleSearch(city) {
+        if (city) {
+            this.props.history.push({
+                pathname: 'forecast',
+                search: `?city=${city}`,
+            });
+        } else {
+            this.setState({
+                searchField: {
+                    error: 'Please enter a city',
+                },
+            });
+        }
+    }
+
     render() {
         return (
             <div id="dashboard">
@@ -72,6 +72,7 @@ class Dashboard extends Component {
                         <div className="row">
                             <h1 className="col s12 white-text center">React <i className="fa fa-cloud" aria-hidden="true" /> Weather</h1>
                             <Search
+                                errorText={this.state.searchField.error}
                                 hintText="Santiago, Dominican Republic"
                                 onButtonClick={() => this.handleSearch(this.state.searchField.text)}
                                 onInputChange={this.handleInputChange}

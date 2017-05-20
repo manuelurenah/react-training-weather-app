@@ -4,13 +4,14 @@ import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import { style, styleMini } from './style';
 
-const Search = ({ hintText, mini, onButtonClick, onInputChange }) => {
+const Search = ({ errorText, hintText, mini, onButtonClick, onInputChange }) => {
     const baseStyle = mini ? styleMini : style;
 
     return (
         <div className="search-container">
             <div className={`${!mini ? 'col s6 offset-s2' : ''}`}>
                 <TextField
+                    errorText={errorText}
                     inputStyle={baseStyle.inputStyle}
                     hintText={hintText}
                     hintStyle={baseStyle.hintStyle}
@@ -30,6 +31,7 @@ const Search = ({ hintText, mini, onButtonClick, onInputChange }) => {
 };
 
 Search.propTypes = {
+    errorText: PropTypes.string,
     hintText: PropTypes.string.isRequired,
     mini: PropTypes.bool,
     onButtonClick: PropTypes.func,
@@ -37,6 +39,7 @@ Search.propTypes = {
 };
 
 Search.defaultProps = {
+    errorText: '',
     mini: false,
     onButtonClick: () => {},
     onInputChange: () => {},

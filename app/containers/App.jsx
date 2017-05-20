@@ -8,7 +8,6 @@ import AppBar from 'material-ui/AppBar';
 import Dashboard from '../components/Dashboard';
 import Forecast from '../components/Forecast';
 import Search from '../components/Search/Search';
-import fetchForecastWeather from '../helpers/api';
 import '../style.css';
 
 class App extends Component {
@@ -27,24 +26,9 @@ class App extends Component {
             },
         };
 
-        this.handleSearch = this.handleSearch.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
-    }
-
-    handleSearch(city) {
-        this.props.history.push({
-            pathname: 'forecast',
-            search: `?city=${city}`,
-        });
-
-        this.setState({
-            city,
-        });
-
-        console.log(city);
-
-        fetchForecastWeather(city, false);
-        fetchForecastWeather(city, true);
+        this.handleTitleClick = this.handleTitleClick.bind(this);
+        this.handleSearch = this.handleSearch.bind(this);
     }
 
     handleInputChange(event) {
@@ -58,6 +42,28 @@ class App extends Component {
         });
     }
 
+    handleTitleClick() {
+        this.props.history.push({
+            pathname: '/',
+            search: '',
+        });
+    }
+
+    handleSearch(city) {
+        if (city) {
+            this.props.history.push({
+                pathname: 'forecast',
+                search: `?city=${city}`,
+            });
+        } else {
+            this.setState({
+                searchField: {
+                    error: 'Please enter a city',
+                },
+            });
+        }
+    }
+
     render() {
         return (
             <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
@@ -65,21 +71,29 @@ class App extends Component {
                     <AppBar
                         iconElementRight={
                             <Search
+                                errorText={this.state.searchField.error}
                                 hintText="Enter a City"
                                 mini
-                                onButtonClick={() =>
-                                    this.handleSearch(this.state.searchField.text)
-                                }
+                                onButtonClick={() => this.handleSearch(this.state.searchField.text)}
                                 onInputChange={this.handleInputChange}
                             />
                         }
-                        iconStyleRight={{ width: '25%' }}
+                        iconStyleRight={{ width: '30%' }}
+                        onTitleTouchTap={() => this.handleTitleClick()}
                         showMenuIconButton={false}
                         title="React Weather"
+                        titleStyle={{ cursor: 'pointer' }}
                     />
                     <Switch>
-                        <Route exact path="/" component={Dashboard} />
-                        <Route path="/forecast" component={Forecast} />
+                        <Route
+                            exact
+                            path="/"
+                            component={Dashboard}
+                        />
+                        <Route
+                            path="/forecast"
+                            component={Forecast}
+                        />
                     </Switch>
                 </div>
             </MuiThemeProvider>
