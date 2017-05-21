@@ -19,7 +19,6 @@ Weather.propTypes = {
 };
 
 Weather.defaultProps = {
-    icon: '00d',
     onWeatherClick: () => {},
 };
 

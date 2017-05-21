@@ -43,6 +43,7 @@ class Forecast extends Component {
         this.props.history.push({
             pathname: `/details/${this.city}`,
             state: weather,
+            city: this.city,
         });
     }
 

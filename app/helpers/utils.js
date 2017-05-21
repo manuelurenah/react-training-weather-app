@@ -23,7 +23,9 @@ const monthsMap = {
     11: 'Dec',
 };
 
-export const convertTemp = kelvin => (((kelvin - 273.15) * 1.8000) + 32.00);
+export const convertTemp = kelvin => (
+    parseFloat(((kelvin - 273.15) * 1.8000) + 32.00).toFixed(2)
+);
 
 export const getDate = (timestamp) => {
     const date = new Date(timestamp * 1000);
