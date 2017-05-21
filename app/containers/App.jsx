@@ -8,6 +8,7 @@ import AppBar from 'material-ui/AppBar';
 import Dashboard from '../components/Dashboard';
 import Forecast from '../components/Forecast';
 import Search from '../components/Search/Search';
+import WeatherDetails from '../components/WeatherDetails';
 import '../style.css';
 
 class App extends Component {
@@ -93,6 +94,10 @@ class App extends Component {
                         <Route
                             path="/forecast"
                             component={Forecast}
+                        />
+                        <Route
+                            path="/details/:city"
+                            component={WeatherDetails}
                         />
                     </Switch>
                 </div>

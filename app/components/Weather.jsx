@@ -1,23 +1,26 @@
+/* eslint jsx-a11y/no-static-element-interactions: 0 */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import { getDate } from '../helpers/utils';
 
-const Weather = ({ date, icon }) => (
-    <div className="col s12 m6 l3">
-        <img src={`./app/assets/img/${icon}.png`} alt="Weather" />
+const Weather = ({ day, onWeatherClick }) => (
+    <div className="col s12 m6 l3" onClick={onWeatherClick}>
+        <img src={`./app/assets/img/${day.weather[0].icon}.png`} alt="Weather" />
         <div className="center white-text">
-            <h4>{getDate(date)}</h4>
+            <h4>{getDate(day.dt)}</h4>
         </div>
     </div>
 );
 
 Weather.propTypes = {
-    date: PropTypes.number.isRequired,
-    icon: PropTypes.string,
+    day: PropTypes.object.isRequired,
+    onWeatherClick: PropTypes.func,
 };
 
 Weather.defaultProps = {
     icon: '00d',
+    onWeatherClick: () => {},
 };
 
 export default Weather;

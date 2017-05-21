@@ -8,6 +8,7 @@ class Forecast extends Component {
     constructor(props) {
         super(props);
 
+        this.handleWeatherClick = this.handleWeatherClick.bind(this);
         this.makeApiRequest = this.makeApiRequest.bind(this);
 
         this.state = {
@@ -17,15 +18,15 @@ class Forecast extends Component {
     }
 
     componentDidMount() {
-        const city = parse(this.props.location.search).city; /* eslint react/prop-types: 0 */
+        this.city = parse(this.props.location.search).city; /* eslint react/prop-types: 0 */
 
-        this.makeApiRequest(city);
+        this.makeApiRequest(this.city);
     }
 
     componentWillReceiveProps(nextProps) {
-        const city = parse(nextProps.location.search).city;
+        this.city = parse(nextProps.location.search).city;
 
-        this.makeApiRequest(city);
+        this.makeApiRequest(this.city);
     }
 
     makeApiRequest(city) {
@@ -35,6 +36,13 @@ class Forecast extends Component {
                 loading: false,
                 weatherData,
             });
+        });
+    }
+
+    handleWeatherClick(weather) {
+        this.props.history.push({
+            pathname: `/details/${this.city}`,
+            state: weather,
         });
     }
 
@@ -57,9 +65,9 @@ class Forecast extends Component {
                             <div className="days-container row">
                                 {weatherData.list.map(day =>
                                     <Weather
-                                        date={day.dt}
-                                        icon={day.weather[0].icon}
+                                        day={day}
                                         key={day.dt}
+                                        onWeatherClick={() => this.handleWeatherClick(day)}
                                     />,
                                 )}
                             </div>
