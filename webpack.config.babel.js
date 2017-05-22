@@ -72,4 +72,4 @@ const productionConfig = {
 
 const config = isProduction ? productionConfig : developmentConfig;
 
-export default Object.assign({}, base, config);
+export default { ...base, ...config };

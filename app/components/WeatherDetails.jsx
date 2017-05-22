@@ -14,8 +14,8 @@ const WeatherDetails = ({ location }) => {
                         <img src={`/app/assets/img/${weatherData.weather[0].icon}.png`} alt="Weather" />
                         <h2>{getDate(weatherData.dt)}</h2>
                         <h4>{weatherData.weather[0].description}</h4>
-                        <h4>Min Temp: {convertTemp(weatherData.temp.min)} ºC</h4>
-                        <h4>Max temp: {convertTemp(weatherData.temp.max)} ºC</h4>
+                        <h4>Min Temp: {convertTemp(weatherData.temp.min)} ºF</h4>
+                        <h4>Max temp: {convertTemp(weatherData.temp.max)} ºF</h4>
                         <h4>Humidity: {weatherData.humidity}</h4>
                     </div>
                 </div>

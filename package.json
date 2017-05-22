@@ -4,6 +4,8 @@
   "description": "Weather app for React Training using ES6",
   "main": "index.js",
   "scripts": {
+    "deploy": "npm run production && firebase deploy",
+    "firebase:init": "firebase login && firebase init",
     "lint": "eslint . --ext .js --ext .jsx --ignore-path .gitignore --cache",
     "lint:fix": "eslint --fix . --ext .js --ext .jsx --ignore-path .gitignore --cache",
     "production": "webpack -p",
