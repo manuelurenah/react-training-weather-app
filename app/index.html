@@ -4,7 +4,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>React Weather App</title>
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
 </head>
@@ -14,5 +13,17 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
     <script src="https://use.fontawesome.com/ff9e302676.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
+    <script>
+      const config = {
+        apiKey: "AIzaSyAvn4U8mcOmSB72TCZU-KJozbJ1bzj6qC8",
+        authDomain: "react-weather-5b835.firebaseapp.com",
+        databaseURL: "https://react-weather-5b835.firebaseio.com",
+        projectId: "react-weather-5b835",
+        storageBucket: "react-weather-5b835.appspot.com",
+        messagingSenderId: "617472612084"
+      };
+      firebase.initializeApp(config);
+    </script>
 </body>
 </html>

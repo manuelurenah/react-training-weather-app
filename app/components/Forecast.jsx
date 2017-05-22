@@ -36,6 +36,13 @@ class Forecast extends Component {
                 loading: false,
                 weatherData,
             });
+        })
+        .catch((error) => {
+            this.props.history.push({
+                pathname: '/',
+                message: 'There was an error making the request. Please try again',
+                error,
+            });
         });
     }
 
