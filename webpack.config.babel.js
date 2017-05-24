@@ -37,6 +37,7 @@ const base = {
             { test: /\.jsx?$/, exclude: /node_modules/, enforce: 'pre', use: 'eslint-loader' },
             { test: /\.jsx?$/, exclude: /node_modules/, use: 'babel-loader' },
             { test: /\.css$/, exclude: /node_modules/, use: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader' }) },
+            { test: /\.(jpg|png|svg)$/, loader: 'url-loader' },
         ],
     },
     resolve: {
