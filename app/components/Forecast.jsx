@@ -38,6 +38,7 @@ class Forecast extends Component {
             });
         })
         .catch((error) => {
+            console.log(error);
             this.props.history.push({
                 pathname: '/',
                 message: 'There was an error making the request. Please try again',
