@@ -20,6 +20,10 @@ html, body {
     overflow-y: auto;
 }
 
+.weather-item {
+    cursor: pointer;
+}
+
 @media screen only and (max-width: 600px) {
     .weather-forecast {
         height: calc(100%-64px);
